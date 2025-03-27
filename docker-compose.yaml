@@ -2,6 +2,6 @@ version: '3.9'
 
 services:
   web:
-    image: "lucky059/demoimage"
+    image: "lucky050/demoimage"
     ports:
       - "8000:8000"
