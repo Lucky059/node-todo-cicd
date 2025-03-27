@@ -11,7 +11,7 @@ pipeline {
         }
         stage("build and test"){
             steps{
-                sh "docker build -t Lucky050/demoimage ."
+                sh "docker build -t lucky050/demoimage ."
                 echo 'code build bhi ho gaya'
             }
         }
@@ -24,8 +24,8 @@ pipeline {
             steps{
                 withCredentials([usernamePassword(credentialsId:"dockerhub",passwordVariable:"dockerhubPass",usernameVariable:"dockerhubUser")]){
                 sh "docker login -u ${env.dockerhubUser} -p ${env.dockerhubPass}"
-                sh "docker tag Lucky050/demoimage Lucky050/demoimage"
-                sh "docker push Lucky050/demoimage"
+                sh "docker tag lucky050/demoimage lucky050/demoimage"
+                sh "docker push lucky050/demoimage"
                 echo 'image push ho gaya'
                 }
             }
